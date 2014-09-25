@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="lyricHub">
+	<head>
+		<meta charset="utf-8">
+		<link href='http://fonts.googleapis.com/css?family=Bitter:400,400italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			LYRIC HUB
+		</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	</head>
+	<body>
+	<header>
+		<img src="img/hubLogo.jpg" id="logo">
+		<h1>Lyric Hub</h1>
+	</header>
+	<div id="wrapper" ng-controller="lyricHubController">
+		<div id="desc">
+			<p>.....find the lyrics of that song, even if you don't know the name!</p>
+			<p>.....play the song and sing along with the lyrics!</p>
+			<a href="about.html" id="findAbout">Learn More</a>
+		</div>
+		<input type="text" id="artistField" placeholder="Type in Artist's Name" ng-model="artistName"><br>
+		<input type="text" id="songField" placeholder="Type in the Song's Name" ng-model="songName"><br>
+		<input type="button" value="Search" id="searchButton" ng-click="getSongLyrics()">
+		<input type="button" value="Reset" id="resetButton">
+		<br>
+		<audio controls="" type="" id="player"></audio><br>
+		<!-- <img src="img/712.GIF" id="loading"> -->
+		<div id="displayArea" class="clearfix">
+			<section id="ifLyrics">
+				<p>...Lyrics Area..</p>
+				<!-- <ul ng-repeat="lyric in lyrics" class="foundSongs">
+					<li><p>Song : {{}}</p></li>
+					<li><p>Title : {{}}</p></li>
+					<li><p>Lyrics : {{}}</p></li>
+					<li><a href="{{}}" target="_blank">Continue to full lyrics</a></li>
+				</ul> -->
+			</section>
+			<section id="ifRelatedSongs">
+				<p>...Search results..</p>
+				<ul ng-repeat="song in songs" class="songFound">
+					<li><img ng-src="{{song.artwork_url}}"></li>
+					<li><a ng-href="{{song.stream_url}}"><img src="img/play.png" class="playIcon" target="_blank"></a></li>
+					<li>{{song.title}}</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/app.js"></script>	
+	</body>
+	<footer>
+		<a href="http://monsieurslim.github.io/Portfolio"><p>&copy; 2014 Monsieur Slim | Andela</p></a>
+	</footer>
+</html>
