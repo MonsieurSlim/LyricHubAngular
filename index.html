@@ -19,7 +19,7 @@
 		<div id="desc">
 			<p>.....find the lyrics of that song, even if you don't know the name!</p>
 			<p>.....play the song and sing along with the lyrics!</p>
-			<a href="about.html" id="findAbout">Learn More</a>
+			<a ng-href="about.html" id="findAbout">Learn More</a>
 		</div>
 		<input type="text" id="artistField" placeholder="Type in Artist's Name" ng-model="artistName"><br>
 		<input type="text" id="songField" placeholder="Type in the Song's Name" ng-model="songName"><br>
@@ -27,22 +27,22 @@
 		<input type="button" value="Reset" id="resetButton">
 		<br>
 		<audio controls="" type="" id="player"></audio><br>
-		<!-- <img src="img/712.GIF" id="loading"> -->
+		<img src="img/712.GIF" id="loading" ng-show="{{lyricHubController.startRequest}}">
 		<div id="displayArea" class="clearfix">
 			<section id="ifLyrics">
 				<p>...Lyrics Area..</p>
-				<!-- <ul ng-repeat="lyric in lyrics" class="foundSongs">
-					<li><p>Song : {{}}</p></li>
-					<li><p>Title : {{}}</p></li>
-					<li><p>Lyrics : {{}}</p></li>
-					<li><a href="{{}}" target="_blank">Continue to full lyrics</a></li>
-				</ul> -->
+				<ul class="foundSongs">
+					<li><p>Title : {{song.song}}</p></li>
+					<li><p>Artist : {{song.artist}}</p></li>
+					<li><p>Lyrics : {{song.lyrics}}</p></li>
+					<li><a ng-href="{{song.url}}" target="_blank">Continue to full lyrics</a></li>
+				</ul>
 			</section>
 			<section id="ifRelatedSongs">
 				<p>...Search results..</p>
 				<ul ng-repeat="song in songs" class="songFound">
 					<li><img ng-src="{{song.artwork_url}}"></li>
-					<li><a ng-href="{{song.stream_url}}"><img src="img/play.png" class="playIcon" target="_blank"></a></li>
+					<li><a ng-href="{{song.stream_url + '?client_id=' + config2.params.client_id}}" target="_blank"><img src="img/play.png" class="playIcon"></a></li>
 					<li>{{song.title}}</li>
 				</ul>
 			</section>
