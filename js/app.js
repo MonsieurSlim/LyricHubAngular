@@ -1,6 +1,5 @@
 var app = angular.module('lyricHub', []);
 app.controller("lyricHubController", ['$scope','$http', function ($scope, $http) {
-	$scope.startRequest = false;
 	var url = "https://lyrics.wikia.com/api.php";
 	var url1 = 'https://api.soundcloud.com/tracks.json';
 	var config = {
@@ -43,6 +42,15 @@ app.controller("lyricHubController", ['$scope','$http', function ($scope, $http)
 			// 	$scope.albumArt = "img/albumArt.jpg";
 			// }
 		});
+
+	};
+
+	$scope.albumArt = function (e) {
+		if(e == null) {
+			return e = "img/albumArt.jpg";
+		}else {
+			return e;
+		}
 	};
 
 	
