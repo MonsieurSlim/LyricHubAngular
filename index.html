@@ -27,11 +27,11 @@
 		<input type="button" value="Reset" id="resetButton">
 		<br>
 		<audio controls="" type="" id="player"></audio><br>
-		<img src="img/712.GIF" id="loading" ng-show="{{lyricHubController.startRequest}}">
+		<img src="img/712.GIF" id="loading" ng-show="{{startRequest}}">
 		<div id="displayArea" class="clearfix">
 			<section id="ifLyrics">
 				<p>...Lyrics Area..</p>
-				<ul class="foundSongs">
+				<ul class="">
 					<li><p>Title : {{song.song}}</p></li>
 					<li><p>Artist : {{song.artist}}</p></li>
 					<li><p>Lyrics : {{song.lyrics}}</p></li>
@@ -41,8 +41,8 @@
 			<section id="ifRelatedSongs">
 				<p>...Search results..</p>
 				<ul ng-repeat="song in songs" class="songFound">
-					<li><img ng-src="{{song.artwork_url}}"></li>
-					<li><a ng-href="{{song.stream_url + '?client_id=' + config2.params.client_id}}" target="_blank"><img src="img/play.png" class="playIcon"></a></li>
+					<li><img ng-src="{{song.artwork_url}}" class""></li>
+					<li><a ng-href="{{song.stream_url + '?client_id=' + listen}}" target="_blank"><img src="img/play.png" class="playIcon"></a></li>
 					<li>{{song.title}}</li>
 				</ul>
 			</section>
