@@ -1,0 +1,234 @@
+/*---------------GENERAL------------------*/
+
+body {
+	background-color: grey;
+	background-image: url("../img/bodyBackground.jpg");
+	background-repeat: no-repeat;
+	background-size: 100vw 150vh;
+	text-align: center;
+}
+
+#wrapper {
+	margin: 50px;
+	padding: 50px;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	color: orange;
+}
+h1 {
+	font-family: 'Bitter', sans-serif;
+	font-size: 3em;
+}
+
+
+/*---------------HEADER------------------*/
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100px;
+	width: 100%;
+	background: #4B4B4B;
+	color: white;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 5px;
+	margin-bottom: 50px;
+}
+
+#logo {
+	position: absolute;
+	left: 0;
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	float: left;
+}
+/*---------------DESCRIPTION AREA------------------*/
+#desc {
+	background: rgba(0,180,0,0.6);
+	color: black;
+	font-style: italic;
+	width: 80%;
+	margin: auto;
+	padding: 10px;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+#findAbout {
+	font-size: 1em;
+}
+
+/*---------------INPUT AREA------------------*/
+
+#artistField, #songField {
+	width: 60%;
+	height: 25px;
+	padding: 10px;
+	margin: 20px auto;
+	border-style: none;
+}
+
+#artistField:hover, #songField:hover {
+	border-style: solid;
+	border-width: 1px;
+	border-color: blue;
+}
+
+#searchButton, #resetButton, #findAbout {
+	font-family: 'Bitter', sans-serif;
+	font-size: 1.15em;
+	color: white;
+	background: green;
+	padding: 10px 20px;
+	margin: 20px;
+	border-style: none;
+	border-radius: 5px;
+}
+
+#searchButton:hover ,  #resetButton:hover, #findAbout:hover {
+	box-shadow: 5px 5px 5px lightblue;
+}
+
+
+/*---------------SEARCH RESULTS DISPLAY AREA------------------*/
+
+#displayArea {
+	color: white;
+	font-style: italic;
+	position: relative;
+	border-radius: 10px;
+	font-size: 1.25em;
+	text-align: left;
+	width: 90%;
+	max-height: 50%;
+	margin: auto;
+}
+/*Lyrics Area*/
+
+#ifLyrics {
+	float: left;
+}
+#error {
+	color: red;
+}
+/*Seach Results Area*/
+
+#ifRelatedSongs, #ifLyrics {
+	width: 45%;
+	height: 200px;
+	padding: 2%;
+	overflow: auto;
+	margin: auto;
+	background-color: rgba(0,0,0,0.7);
+}
+
+#ifRelatedSongs {
+	float: right;
+}
+
+.songFound {
+	list-style: none;
+}
+.songFound li {
+	display: inline-block;
+	padding: 5px;
+}
+
+.playIcon {
+	height: 50px;
+	width: 70px;
+	border-radius: 10px;
+}
+.album_art {
+	height: 50px;
+	width: 50px;
+}
+
+
+/*Response Progress Image*/
+#loading {
+	margin: 10px;
+}
+
+
+/*Music Player*/
+#player {
+	width: 30%;
+}
+
+.clearfix:after {
+   content: " "; /* Older browsers do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+
+footer {
+	position: relative;
+	bottom: 0;
+	clear: both;
+	font-family: 'Bitter', sans-serif;
+}
+/*--------ABOUT PAGE-----------*/
+
+#about {
+	font-family: 'Bitter', sans-serif;
+	font-style: italic;
+	text-align: left;
+	color: white;
+	background: rgba(0,0,0,0.7);
+	padding: 30px;
+	margin: 20px auto;
+}
+#about span {
+	color: green;
+}
+
+
+/*--------MOBILE RESPONSIVENESS-----------*/
+
+@media screen and (max-width: 800px) {
+	body {
+		font-size: 0.7em;
+	}
+
+	#songField, #artistField {
+		height: 10px;
+	}
+
+	#displayArea {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+
+	#wrapper {
+		margin: 10px;
+		padding: 10px;
+		margin-top: 90px;
+	}
+	#ifRelatedSongs, #ifLyrics {
+	}
+}
+
+@media screen and (max-width: 380px) {
+	header {
+		color: black;
+		height: 80px;
+	}
+	#logo{
+		height: 80px;
+		width: 75px;
+	}
+	#wrapper {
+		margin-top: 70px;
+	}
+}
+
