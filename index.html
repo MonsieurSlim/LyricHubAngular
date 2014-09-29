@@ -21,16 +21,17 @@
 			<p>.....play the song and sing along with the lyrics!</p>
 			<a ng-href="about.html" id="findAbout">How to</a>
 		</div>
-		<input type="text" id="artistField" placeholder="Type in Artist's Name" ng-model="artistName"><br>
-		<input type="text" id="songField" placeholder="Type in the Song's Name" ng-model="songName"><br>
-		<input type="button" value="Search" id="searchButton" ng-click="getSongLyrics()">
+		<input type="text" id="artistField" placeholder="Type in Artist's Name" ng-model="artistName" value=""><br>
+		<input type="text" id="songField" placeholder="Type in the Song's Name" ng-model="songName" value=""><br>
+		<input type="button" value="Search" id="searchButton" ng-click="validate()">
 		<input type="button" value="Reset" id="resetButton">
 		<br>
-		<audio controls="" type="" id="player" ng-src="{{song.stream_url + '?client_id=' + listen}}"></audio><br>
+		<!-- <audio controls type="" id="player" ng-src="{{song.stream_url + '?client_id=' + listen}}"></audio><br> -->
 		<img src="img/712.GIF" id="loading" ng-show="{{startRequest}}">
 		<div id="displayArea" class="clearfix">
 			<section id="ifLyrics">
 				<p>...Lyrics Area..</p>
+				<div id="error">{{errMessage.text}}</div>
 				<ul class="">
 					<li><p>Title : {{song.song}}</p></li>
 					<li><p>Artist : {{song.artist}}</p></li>
@@ -41,7 +42,7 @@
 			<section id="ifRelatedSongs">
 				<p>...Search results..</p>
 				<ul ng-repeat="song in songs" class="songFound">
-					<li><img ng-src="{{albumArt(song.artwork_url)}}" class"album_art ng-scope"></li>
+					<li><img ng-src="{{albumArt(song.artwork_url)}}" class"album_art"></li>
 					<li><a ng-href="{{song.stream_url + '?client_id=' + listen}}" target="_blank"><img src="img/play.png" class="playIcon"></a></li>
 					<li>{{song.title}}</li>
 				</ul>

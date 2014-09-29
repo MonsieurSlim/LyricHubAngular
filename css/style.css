@@ -108,6 +108,15 @@ header {
 	max-height: 50%;
 	margin: auto;
 }
+/*Lyrics Area*/
+
+#ifLyrics {
+	float: left;
+}
+#error {
+	color: red;
+}
+/*Seach Results Area*/
 
 #ifRelatedSongs, #ifLyrics {
 	width: 45%;
@@ -120,10 +129,6 @@ header {
 
 #ifRelatedSongs {
 	float: right;
-}
-
-#ifLyrics {
-	float: left;
 }
 
 .songFound {
