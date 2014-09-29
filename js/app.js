@@ -17,7 +17,6 @@ app.controller("lyricHubController", ['$scope','$http', function ($scope, $http)
 				}
 		};
 	$scope.validate = function () {
-		console.log(songIn);
 		var songIn = $scope.songName.trim().toLowerCase();
 		var artistIn = $scope.artistName.trim().toLowerCase();
 		if((songIn.length < 1) && (artistIn.length < 1)) {
@@ -30,7 +29,6 @@ app.controller("lyricHubController", ['$scope','$http', function ($scope, $http)
 	},
 
 	$scope.getSongLyrics = function () {
-		console.log("get lyrics is running");
 		$scope.startRequest = true;
 		var songIn = $scope.songName.trim().toLowerCase();
 		var artistIn = $scope.artistName.trim().toLowerCase();
@@ -38,16 +36,17 @@ app.controller("lyricHubController", ['$scope','$http', function ($scope, $http)
 		config.params.artist = artistIn;
 		if (songIn.length < 1 || artistIn.length < 1) {
 			$scope.errMessage = { text : "...Please put both the Artist and Song names to generate the lyrics. If you\'re uncertain, consult the search results on the right."};
+			$scope.startRequest = false;
 		}else {
 			$http.jsonp(url, config).success(function (response) {
 				console.log(response);
+				$scope.startRequest = false;
 				$scope.song = response;
 			});
 		}
 	},
 
 	$scope.getSongs = function () {
-		console.log("get songs is running");
 		$scope.startRequest = true;
 		var songIn = $scope.songName.trim().toLowerCase();
 		var artistIn = $scope.artistName.trim().toLowerCase();
@@ -58,6 +57,7 @@ app.controller("lyricHubController", ['$scope','$http', function ($scope, $http)
 			}
 		$http.jsonp(url1, config2).success(function (response) {
 			console.log(response);
+			$scope.startRequest = false;
 			$scope.listen = config2.params.client_id;
 			$scope.songs = response;
 		});
@@ -70,12 +70,12 @@ app.controller("lyricHubController", ['$scope','$http', function ($scope, $http)
 		}else {
 			return e;
 		}
+	},
+
+	$scope.refresh = function () {
+		event.preventDefault;
+		$scope.songName = "";
+		$scope.artistName = "";
 	}
 
-	// $scope.playSong = function () {
-	// 	$scope.songPlay.play();
-	// 	return false;
-	// };
-
-	
 }]);

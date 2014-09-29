@@ -24,15 +24,15 @@
 		<input type="text" id="artistField" placeholder="Type in Artist's Name" ng-model="artistName" value=""><br>
 		<input type="text" id="songField" placeholder="Type in the Song's Name" ng-model="songName" value=""><br>
 		<input type="button" value="Search" id="searchButton" ng-click="validate()">
-		<input type="button" value="Reset" id="resetButton">
+		<input type="button" value="Reset" id="resetButton" ng-click="refresh()">
 		<br>
 		<!-- <audio controls type="" id="player" ng-src="{{song.stream_url + '?client_id=' + listen}}"></audio><br> -->
-		<img src="img/712.GIF" id="loading" ng-show="{{startRequest}}">
+		<img src="img/712.GIF" id="loading" ng-show="startRequest">
 		<div id="displayArea" class="clearfix">
 			<section id="ifLyrics">
 				<p>...Lyrics Area..</p>
 				<div id="error">{{errMessage.text}}</div>
-				<ul class="">
+				<ul ng-show="song.url">
 					<li><p>Title : {{song.song}}</p></li>
 					<li><p>Artist : {{song.artist}}</p></li>
 					<li><p>Lyrics : {{song.lyrics}}</p></li>
